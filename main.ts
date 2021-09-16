@@ -36,3 +36,22 @@ let randomValue: any = 10;
 randomValue = true;
 randomValue = 'Clark';
 
+let myVariable: any = 10;
+console.log(myVariable.name);
+myVariable();
+myVariable.toUpperCase();
+
+//Unknown type
+let myVariable2: unknown = 10;
+
+function hasName(obj: any): obj is { name: string}{
+  return !!obj &&
+    typeof obj === "object" &&
+    "name" in obj
+}
+if (hasName(myVariable2)) {
+  console.log(myVariable2.name);
+}
+(myVariable2 as string).toUpperCase();
+
+

@@ -42,3 +42,18 @@ console.log(d); //prints 13
 var randomValue = 10;
 randomValue = true;
 randomValue = 'Clark';
+var myVariable = 10;
+console.log(myVariable.name);
+myVariable();
+myVariable.toUpperCase();
+//Unknown type
+var myVariable2 = 10;
+function hasName(obj) {
+    return !!obj &&
+        typeof obj === "object" &&
+        "name" in obj;
+}
+if (hasName(myVariable2)) {
+    console.log(myVariable2.name);
+}
+myVariable2.toUpperCase();
