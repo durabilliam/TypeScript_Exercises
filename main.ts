@@ -54,4 +54,16 @@ if (hasName(myVariable2)) {
 }
 (myVariable2 as string).toUpperCase();
 
+//Type Inference
+let a;
+a = 20;
+a = true;
+
+let b = 20; //here b is Infered to a NUMBER Type when value is declared!!
+
+//Union of types for same Variable - restrict to specified type.
+//Will give intellesense support where "any" type will not.
+let multiType: number | boolean;
+multiType = 20;
+multiType = true;
 

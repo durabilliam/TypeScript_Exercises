@@ -57,3 +57,13 @@ if (hasName(myVariable2)) {
     console.log(myVariable2.name);
 }
 myVariable2.toUpperCase();
+//Type Inference
+var a;
+a = 20;
+a = true;
+var b = 20; //here b is Infered to a NUMBER Type when value is declared!!
+//Union of types for same Variable - restrict to specified type.
+//Will give intellesense support where "any" type will not.
+var multiType;
+multiType = 20;
+multiType = true;
