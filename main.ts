@@ -97,6 +97,7 @@ summing(5)
 interface Person{
   firstName: string;
   lastName: string;
+  age?: number;    //optional property
 }
 
 function fullName(person: Person){
@@ -109,3 +110,45 @@ let p = {
 };
 
 fullName(p)
+
+//Class Examples
+class Employee {
+  employeeName: string;
+
+  constructor(name: string){
+    this.employeeName = name;
+  }
+
+  greet(){
+    console.log(`Good Morning ${this.employeeName}`);
+  }
+}
+
+let emp1 = new Employee('Clark');
+console.log(emp1.employeeName);
+emp1.greet();
+
+//Inheretence
+class Manager extends Employee {
+  constructor(managerName: string){
+    super(managerName);
+  }
+  delegateWork(){
+    console.log('Manager delegating Tasks')
+  }
+}
+
+let m1 = new Manager('Lois');
+m1.delegateWork();
+m1.greet();
+console.log(m1.employeeName);
+
+//Access Modifiers
+// Public - free Access
+// Private - access within the class
+// Protected - access within the class and classes derived from it.
+//
+// example from above -
+//                 class Employee {
+//                   protected employeeName: string;
+//                   };

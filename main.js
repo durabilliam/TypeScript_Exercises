@@ -1,4 +1,19 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 exports.__esModule = true;
 var message = 'Hello Buddy!';
 console.log(message);
@@ -98,3 +113,40 @@ var p = {
     lastName: 'Kent'
 };
 fullName(p);
+//Class Examples
+var Employee = /** @class */ (function () {
+    function Employee(name) {
+        this.employeeName = name;
+    }
+    Employee.prototype.greet = function () {
+        console.log("Good Morning " + this.employeeName);
+    };
+    return Employee;
+}());
+var emp1 = new Employee('Clark');
+console.log(emp1.employeeName);
+emp1.greet();
+//Inheretence
+var Manager = /** @class */ (function (_super) {
+    __extends(Manager, _super);
+    function Manager(managerName) {
+        return _super.call(this, managerName) || this;
+    }
+    Manager.prototype.delegateWork = function () {
+        console.log('Manager delegating Tasks');
+    };
+    return Manager;
+}(Employee));
+var m1 = new Manager('Lois');
+m1.delegateWork();
+m1.greet();
+console.log(m1.employeeName);
+//Access Modifiers
+// Public - free Access
+// Private - access within the class
+// Protected - access within the class and classes derived from it.
+//
+// example from above -
+//                 class Employee {
+//                   protected employeeName: string;
+//                   };
