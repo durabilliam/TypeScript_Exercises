@@ -44,19 +44,19 @@ randomValue = true;
 randomValue = 'Clark';
 var myVariable = 10;
 console.log(myVariable.name);
-myVariable();
-myVariable.toUpperCase();
+//myVariable();
+//myVariable.toUpperCase();
 //Unknown type
 var myVariable2 = 10;
 function hasName(obj) {
-    return !!obj &&
+    return obj &&
         typeof obj === "object" &&
         "name" in obj;
 }
 if (hasName(myVariable2)) {
     console.log(myVariable2.name);
 }
-myVariable2.toUpperCase();
+//(myVariable2 as string).toUpperCase();
 //Type Inference
 var a;
 a = 20;
@@ -67,3 +67,34 @@ var b = 20; //here b is Infered to a NUMBER Type when value is declared!!
 var multiType;
 multiType = 20;
 multiType = true;
+//Functions
+function add(num1, num2) {
+    return num1 + num2;
+}
+add(5, 10);
+//num2?: number  --> makes optional parameter
+function sum(num1, num2) {
+    if (num2)
+        return num1 + num2;
+    else
+        return num1;
+}
+sum(5, 10);
+//num2?: number  --> makes default parameter with value 10
+function summing(num1, num2) {
+    if (num2 === void 0) { num2 = 10; }
+    if (num2)
+        return num1 + num2;
+    else
+        return num1;
+}
+summing(5, 10);
+summing(5);
+function fullName(person) {
+    console.log(person.firstName + " " + person.lastName);
+}
+var p = {
+    firstName: 'Clark',
+    lastName: 'Kent'
+};
+fullName(p);

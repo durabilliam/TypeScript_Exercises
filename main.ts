@@ -38,21 +38,21 @@ randomValue = 'Clark';
 
 let myVariable: any = 10;
 console.log(myVariable.name);
-myVariable();
-myVariable.toUpperCase();
+//myVariable();
+//myVariable.toUpperCase();
 
 //Unknown type
 let myVariable2: unknown = 10;
 
 function hasName(obj: any): obj is { name: string}{
-  return !!obj &&
+  return obj &&
     typeof obj === "object" &&
     "name" in obj
 }
 if (hasName(myVariable2)) {
   console.log(myVariable2.name);
 }
-(myVariable2 as string).toUpperCase();
+//(myVariable2 as string).toUpperCase();
 
 //Type Inference
 let a;
@@ -67,3 +67,45 @@ let multiType: number | boolean;
 multiType = 20;
 multiType = true;
 
+
+//Functions
+function add(num1: number, num2: number): number{
+  return num1 + num2;
+}
+add(5, 10);
+
+//num2?: number  --> makes optional parameter
+function sum(num1: number, num2?: number): number{
+  if (num2)
+    return num1 + num2;
+  else
+    return num1;
+}
+sum(5, 10);
+
+//num2?: number  --> makes default parameter with value 10
+function summing(num1: number, num2: number = 10): number{
+  if (num2)
+    return num1 + num2;
+  else
+    return num1;
+}
+summing(5, 10);
+summing(5)
+
+//Interface
+interface Person{
+  firstName: string;
+  lastName: string;
+}
+
+function fullName(person: Person){
+  console.log(`${person.firstName} ${person.lastName}`);
+}
+
+let p = {
+  firstName: 'Clark',
+  lastName: 'Kent'
+};
+
+fullName(p)
